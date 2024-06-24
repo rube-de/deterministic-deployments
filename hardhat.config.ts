@@ -9,6 +9,7 @@ import "hardhat-test-suite-generator";
 import type { HardhatUserConfig } from "hardhat/config";
 import type { HttpNetworkAccountsUserConfig, NetworkUserConfig } from "hardhat/types";
 import { resolve } from "path";
+import '@openzeppelin/hardhat-upgrades';
 
 import { API_KEYS } from "./config/api-keys";
 import { NETWORKS, Network, NetworkName } from "./config/networks";
@@ -125,7 +126,7 @@ const config: HardhatUserConfig = {
   solidity: {
     compilers: [
       {
-        version: "0.8.23",
+        version: "0.8.26",
         settings: {
           metadata: {
             // Not including the metadata hash
@@ -138,7 +139,7 @@ const config: HardhatUserConfig = {
             enabled: true,
             runs: 200,
           },
-          evmVersion: "paris",
+          evmVersion: "cancun",
         },
       },
     ],
@@ -156,6 +157,10 @@ const config: HardhatUserConfig = {
     outDir: "types",
     target: "ethers-v6",
   },
+  defender: {
+    apiKey: process.env.DEFENDER_API_KEY as string,
+    apiSecret: process.env.DEFENDER_API_SECRET as string,
+  }
 };
 
 export default config;
