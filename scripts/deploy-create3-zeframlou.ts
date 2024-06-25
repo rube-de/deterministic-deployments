@@ -1,5 +1,5 @@
 import { Wallet, getDefaultProvider, ethers, AbiCoder } from 'ethers';
-import Lock from '../artifacts/contracts/LockCreate3.sol/Lock3.json';
+import Lock3 from '../artifacts/contracts/LockCreate3.sol/Lock3.json';
 import Create3FactoryZeframlou from './Create3FactoryZeframlou.json'
 import {NETWORKS,Network} from '../config/networks';
 
@@ -25,7 +25,7 @@ async function main() {
 
         // salt (make sure this salt has not been used already)
         const salt = ethers.toBeHex(218n, 32);
-        const creationCode = ethers.solidityPacked( ['bytes', 'bytes'], [Lock.bytecode, coder.encode(['uint256', 'address'], [unlockTime+chain.chainId, wallet.address])] ); 
+        const creationCode = ethers.solidityPacked( ['bytes', 'bytes'], [Lock3.bytecode, coder.encode(['uint256', 'address'], [unlockTime+chain.chainId, wallet.address])] ); 
         const predictionAddress = await deployerContract.getDeployed(connectedWallet.address, salt);
         const deployedAddress = await deployerContract.deploy(salt, creationCode);
         // const deployedAddress = await deployerContract.deploy.staticCall(salt, creationCode); // for prediction

@@ -1,5 +1,5 @@
 import { Wallet, getDefaultProvider, ethers, AbiCoder, Interface} from 'ethers';
-import Lock from '../artifacts/contracts/LockCreate3.sol/Lock3.json';
+import Lock3 from '../artifacts/contracts/LockCreate3.sol/Lock3.json';
 import Create3Deployer from '@axelar-network/axelar-gmp-sdk-solidity/artifacts/contracts/deploy/Create3Deployer.sol/Create3Deployer.json';
 import { NETWORKS, Network } from '../config/networks';
 
@@ -28,7 +28,7 @@ async function main() {
 
         // salt (make sure this salt has not been used already)
         const salt = ethers.toBeHex(222n, 32);
-        const creationCode = ethers.solidityPacked( ['bytes', 'bytes'], [Lock.bytecode, coder.encode(['uint256', 'address'], [unlockTime+chain.chainId, wallet.address])] ); 
+        const creationCode = ethers.solidityPacked( ['bytes', 'bytes'], [Lock3.bytecode, coder.encode(['uint256', 'address'], [unlockTime+chain.chainId, wallet.address])] ); 
         const predictiondAddress = await deployerContract.deploy.staticCall(creationCode, salt); 
         console.log(`${chain.chainId}, prediction address: ${predictiondAddress}`);
         const deployedAddress = await deployerContract.deploy(creationCode, salt); 
