@@ -1,5 +1,6 @@
 import "@nomicfoundation/hardhat-foundry";
 import "@nomicfoundation/hardhat-toolbox";
+import "@nomicfoundation/hardhat-ignition-ethers";
 import "@primitivefi/hardhat-dodoc";
 import { config as dotenvConfig } from "dotenv";
 import "hardhat-contract-sizer";
@@ -126,7 +127,7 @@ const config: HardhatUserConfig = {
   solidity: {
     compilers: [
       {
-        version: "0.8.26",
+        version: "0.8.19",
         settings: {
           metadata: {
             // Not including the metadata hash
@@ -139,7 +140,7 @@ const config: HardhatUserConfig = {
             enabled: true,
             runs: 200,
           },
-          evmVersion: "cancun",
+          evmVersion: "paris",
         },
       },
     ],
@@ -160,7 +161,15 @@ const config: HardhatUserConfig = {
   defender: {
     apiKey: process.env.DEFENDER_API_KEY as string,
     apiSecret: process.env.DEFENDER_API_SECRET as string,
-  }
+  },
+  ignition: {
+    strategyConfig: {
+      create2: {
+        // To learn more about salts, see the CreateX documentation
+        salt: "0x0000000000000000000000000000000000000000000000000000000000000000",
+      },
+    },
+  },
 };
 
 export default config;
