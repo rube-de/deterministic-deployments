@@ -62,3 +62,8 @@ waiting for https://github.com/NomicFoundation/hardhat-ignition/issues/726
 
 ## CreateX
 
+### Create3
+
+```
+yarn hardhat run scripts/deploy-create3-createX.ts
+```
