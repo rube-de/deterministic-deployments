@@ -25,6 +25,7 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   await preDeploy(deployer, "Lock");
   const deployResult: DeployResult = await deploy("Lock", {
     // Learn more about args here: https://www.npmjs.com/package/hardhat-deploy#deploymentsdeploy
+    contract: "contracts/Lock.sol:Lock",
     from: deployer,
     args: args,
     log: true,
