@@ -42,7 +42,7 @@ export async function verifyContract({
   contractAddress,
   args = [],
   contractPath,
-  delay = 60_000,
+  delay = 10_000,
 }: VerifyContractParams): Promise<void> {
   await delayLog(delay);
 
