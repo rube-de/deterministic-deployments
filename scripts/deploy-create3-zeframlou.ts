@@ -1,5 +1,5 @@
 import { Wallet, getDefaultProvider, ethers, AbiCoder } from 'ethers';
-import Lock from '../artifacts/contracts/LockCreate3.sol/Lock.json';
+import Lock from '../artifacts/contracts/LockCreate3.sol/Lock3.json';
 import Create3FactoryZeframlou from './Create3FactoryZeframlou.json'
 import {NETWORKS,Network} from '../config/networks';
 

@@ -1,5 +1,5 @@
 import { Wallet, getDefaultProvider, ethers, AbiCoder, Interface} from 'ethers';
-import Lock from '../artifacts/contracts/LockCreate3.sol/Lock.json';
+import Lock from '../artifacts/contracts/LockCreate3.sol/Lock3.json';
 import Create3Deployer from '@axelar-network/axelar-gmp-sdk-solidity/artifacts/contracts/deploy/Create3Deployer.sol/Create3Deployer.json';
 import { NETWORKS, Network } from '../config/networks';
 
