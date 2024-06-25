@@ -12,7 +12,10 @@ or
 $ yarn install
 $ forge install
 ```
+### create env
 
+Needed: 
+private key, infura api-key and etherscan api key
 
 # Deterministic Deployments
 
