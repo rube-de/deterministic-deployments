@@ -10,13 +10,10 @@ export const API_KEYS: string | Record<string, string> | undefined = {
   goerli: process.env.ETHERSCAN_API_KEY || "",
   sepolia: process.env.ETHERSCAN_API_KEY || "",
 
-  // BINANCE SMART CHAIN
-  bsc: process.env.BSCSCAN_API_KEY || "",
-  bscTestnet: process.env.BSCSCAN_API_KEY || "",
-
   // MATIC/POLYGON
   polygon: process.env.POLYGONSCAN_API_KEY || "",
   polygonMumbai: process.env.POLYGONSCAN_API_KEY || "",
+  polygonAmoy: process.env.POLYGONSCAN_API_KEY || "",
 
   // OPTIMISM
   optimisticEthereum: process.env.OPTIMISM_API_KEY || "",
@@ -26,11 +23,4 @@ export const API_KEYS: string | Record<string, string> | undefined = {
   arbitrumOne: process.env.ARBISCAN_API_KEY || "",
   arbitrumTestnet: process.env.ARBISCAN_API_KEY || "",
 
-  // AVALANCHE
-  avalanche: process.env.SNOWTRACE_API_KEY || "",
-  avalancheFujiTestnet: process.env.SNOWTRACE_API_KEY || "",
-
-  // FANTOM
-  opera: process.env.FANTOM_API_KEY || "",
-  ftmTestnet: process.env.FANTOM_API_KEY || "",
 } as const;
