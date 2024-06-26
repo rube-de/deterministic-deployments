@@ -24,7 +24,8 @@ async function main() {
         const coder = AbiCoder.defaultAbiCoder()
 
         // salt (make sure this salt has not been used already)
-        const salt = ethers.toBeHex(218n, 32);
+        // const salt = ethers.toBeHex(219n, 32);
+        const salt = ethers.encodeBytes32String("test123");
         const creationCode = ethers.solidityPacked( ['bytes', 'bytes'], [Lock3.bytecode, coder.encode(['uint256', 'address'], [unlockTime+chain.chainId, wallet.address])] ); 
         const predictionAddress = await deployerContract.getDeployed(connectedWallet.address, salt);
         const deployedAddress = await deployerContract.deploy(salt, creationCode);
@@ -36,7 +37,8 @@ async function main() {
 function getEvmChains() {
     const chains: Network[] = [];
     chains.push(NETWORKS.sepolia);
-    chains.push(NETWORKS['polygon-mainnet']);
+    // chains.push(NETWORKS['polygon-mainnet']);
+    // chains.push(NETWORKS['polygon-amoy']);
     return chains;
 }
 
